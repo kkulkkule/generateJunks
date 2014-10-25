@@ -14,6 +14,9 @@ function this.RandomizeDirection(dir)
 end
 
 function this.Init()
+	if string.find(game.GetMap(), "_obj") or string.find(game.GetMap(), "objective") then
+		return false
+	end
     this.created = {}
     for _, v in pairs(team.GetSpawnPoint(TEAM_HUMAN)) do 
         -- local start = (istable(team.GetSpawnPoint(TEAM_HUMAN)) and table.Random(team.GetSpawnPoint(TEAM_HUMAN)):GetPos() + Vector(0, 0, 20)) // 추적 시작 지점은 스폰지점에서 위로 20만큼 떨어진 지점
